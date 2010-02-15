@@ -1,6 +1,6 @@
 ﻿namespace S60SigningTool
 {
-    partial class MainForm
+    partial class SignSisForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignSisForm));
             this.file = new System.Windows.Forms.ComboBox();
             this.browseFile = new System.Windows.Forms.Button();
             this.certificate = new System.Windows.Forms.ComboBox();
@@ -41,18 +41,17 @@
             this.unsign = new System.Windows.Forms.CheckBox();
             this.run = new System.Windows.Forms.Button();
             this.output = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.browseOutput = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.loadProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.statusStrip1.SuspendLayout();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.loadProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label4 = new System.Windows.Forms.Label();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.consoleOutput = new System.Windows.Forms.ListBox();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +81,7 @@
             this.certificate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.certificate.FormattingEnabled = true;
-            this.certificate.Location = new System.Drawing.Point(91, 84);
+            this.certificate.Location = new System.Drawing.Point(91, 53);
             this.certificate.Name = "certificate";
             this.certificate.Size = new System.Drawing.Size(406, 21);
             this.certificate.TabIndex = 3;
@@ -90,7 +89,7 @@
             // browseCertificate
             // 
             this.browseCertificate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.browseCertificate.Location = new System.Drawing.Point(503, 82);
+            this.browseCertificate.Location = new System.Drawing.Point(503, 51);
             this.browseCertificate.Name = "browseCertificate";
             this.browseCertificate.Size = new System.Drawing.Size(75, 23);
             this.browseCertificate.TabIndex = 4;
@@ -103,7 +102,7 @@
             this.key.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.key.FormattingEnabled = true;
-            this.key.Location = new System.Drawing.Point(91, 115);
+            this.key.Location = new System.Drawing.Point(91, 84);
             this.key.Name = "key";
             this.key.Size = new System.Drawing.Size(406, 21);
             this.key.TabIndex = 5;
@@ -120,7 +119,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 87);
+            this.label2.Location = new System.Drawing.Point(15, 56);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 7;
@@ -129,7 +128,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 115);
+            this.label3.Location = new System.Drawing.Point(15, 84);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(28, 13);
             this.label3.TabIndex = 8;
@@ -138,7 +137,7 @@
             // browseKey
             // 
             this.browseKey.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.browseKey.Location = new System.Drawing.Point(503, 113);
+            this.browseKey.Location = new System.Drawing.Point(503, 82);
             this.browseKey.Name = "browseKey";
             this.browseKey.Size = new System.Drawing.Size(75, 23);
             this.browseKey.TabIndex = 9;
@@ -149,7 +148,7 @@
             // unsign
             // 
             this.unsign.AutoSize = true;
-            this.unsign.Location = new System.Drawing.Point(15, 148);
+            this.unsign.Location = new System.Drawing.Point(15, 117);
             this.unsign.Name = "unsign";
             this.unsign.Size = new System.Drawing.Size(76, 17);
             this.unsign.TabIndex = 10;
@@ -158,7 +157,7 @@
             // 
             // run
             // 
-            this.run.Location = new System.Drawing.Point(97, 144);
+            this.run.Location = new System.Drawing.Point(97, 113);
             this.run.Name = "run";
             this.run.Size = new System.Drawing.Size(75, 23);
             this.run.TabIndex = 11;
@@ -171,62 +170,35 @@
             this.output.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.output.FormattingEnabled = true;
-            this.output.Location = new System.Drawing.Point(91, 57);
+            this.output.Location = new System.Drawing.Point(226, 113);
             this.output.Name = "output";
-            this.output.Size = new System.Drawing.Size(406, 21);
+            this.output.Size = new System.Drawing.Size(271, 21);
             this.output.TabIndex = 12;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 59);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 13);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Output:";
-            // 
-            // browseOutput
-            // 
-            this.browseOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.browseOutput.Location = new System.Drawing.Point(504, 54);
-            this.browseOutput.Name = "browseOutput";
-            this.browseOutput.Size = new System.Drawing.Size(75, 23);
-            this.browseOutput.TabIndex = 14;
-            this.browseOutput.Text = "Browse";
-            this.browseOutput.UseVisualStyleBackColor = true;
-            this.browseOutput.Click += new System.EventHandler(this.browseOutput_Click);
             // 
             // openFileDialog
             // 
             this.openFileDialog.FileName = "openFileDialog";
             // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 172);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(584, 22);
-            this.statusStrip1.SizingGrip = false;
-            this.statusStrip1.TabIndex = 15;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(42, 17);
-            this.toolStripStatusLabel1.Text = "Status:";
-            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
-            this.toolStripDropDownButton1});
+            this.toolStripDropDownButton1,
+            this.toolStripLabel1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(584, 25);
             this.toolStrip1.TabIndex = 16;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(91, 22);
+            this.toolStripButton1.Text = "Save project";
+            this.toolStripButton1.Click += new System.EventHandler(this.SaveProject);
             // 
             // toolStripDropDownButton1
             // 
@@ -239,33 +211,57 @@
             this.toolStripDropDownButton1.Size = new System.Drawing.Size(102, 22);
             this.toolStripDropDownButton1.Text = "Load project";
             // 
-            // loadProjectToolStripMenuItem
-            // 
-            this.loadProjectToolStripMenuItem.Name = "loadProjectToolStripMenuItem";
-            this.loadProjectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.loadProjectToolStripMenuItem.Text = "Load project";
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
-            // toolStripButton1
+            // loadProjectToolStripMenuItem
             // 
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(91, 22);
-            this.toolStripButton1.Text = "Save project";
+            this.loadProjectToolStripMenuItem.Name = "loadProjectToolStripMenuItem";
+            this.loadProjectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadProjectToolStripMenuItem.Text = "Load project";
+            this.loadProjectToolStripMenuItem.Click += new System.EventHandler(this.LoadProject);
             // 
-            // MainForm
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(178, 117);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Output:";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(89, 22);
+            this.toolStripLabel1.Text = "SymbianSigned";
+            this.toolStripLabel1.Click += new System.EventHandler(this.toolStripLabel1_Click);
+            // 
+            // consoleOutput
+            // 
+            this.consoleOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.consoleOutput.BackColor = System.Drawing.SystemColors.InfoText;
+            this.consoleOutput.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.consoleOutput.ForeColor = System.Drawing.Color.Lime;
+            this.consoleOutput.FormattingEnabled = true;
+            this.consoleOutput.ItemHeight = 14;
+            this.consoleOutput.Location = new System.Drawing.Point(12, 140);
+            this.consoleOutput.Name = "consoleOutput";
+            this.consoleOutput.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.consoleOutput.Size = new System.Drawing.Size(560, 242);
+            this.consoleOutput.TabIndex = 17;
+            // 
+            // SignSisForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 194);
+            this.ClientSize = new System.Drawing.Size(584, 397);
+            this.Controls.Add(this.consoleOutput);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.browseOutput);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.output);
             this.Controls.Add(this.run);
@@ -280,10 +276,8 @@
             this.Controls.Add(this.browseFile);
             this.Controls.Add(this.file);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "MainForm";
+            this.Name = "SignSisForm";
             this.Text = "S60SignSisTool";
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -305,17 +299,17 @@
         private System.Windows.Forms.CheckBox unsign;
         private System.Windows.Forms.Button run;
         private System.Windows.Forms.ComboBox output;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button browseOutput;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem loadProjectToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ListBox consoleOutput;
     }
 }
 
